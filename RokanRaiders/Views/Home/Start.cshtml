@@ -1,0 +1,29 @@
+﻿@model IEnumerable<RokanRaiders.Models.Event>
+@{
+    ViewData["Title"] = "Start";
+}
+
+<div class="box-left-content">
+    <h2>Välkommen!</h2>
+    <p>
+        Vi är Rokan Raiders, en skateboardförening i Piteå närområde som vill sprida skateglädje.
+        Genom oss kan du skatea i vår ramp och delta i våra många evenemang runt i norrbottens skateboardställen.
+        <br /><br />Läs mer om medlemsskapet eller kika in våra kommande evenemang, så ses vi!
+    </p>
+    <img class="pic-index" src="~/img/index.jpg" />
+</div>
+
+<div class="box-next-event">
+    <h3>Nästa event</h3>
+    <!-- Skriv ut nästkommande event -->
+    @foreach (var item in Model)
+    {
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <h5>@Html.DisplayNameFor(model => model.Date)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Date)</p>
+        <h5>@Html.DisplayNameFor(model => model.Location)</h5>
+        <p> @Html.DisplayFor(modelItem => item.Location)</p>
+        <h5>@Html.DisplayNameFor(model => model.Info)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Info)</p>
+    }
+</div>

@@ -1,0 +1,19 @@
+@model RokanRaiders.Models.Event
+
+@{
+    ViewData["Title"] = "Ta bort";
+}
+<div class="box-center-content">
+    <h2>Ta bort</h2>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
+    <h5>@Html.DisplayNameFor(model => model.Date)</h5>
+    <p class="next-event-info">@Html.DisplayFor(model => model.Date)</p>
+    <h5>@Html.DisplayNameFor(model => model.Location)</h5>
+    <p>@Html.DisplayFor(model => model.Location)</p>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EventID" />
+        <input type="submit" value="Ta bort" class="btn" />
+        <a class="help-link" asp-action="Index">Tillbaka till listan</a>
+    </form>
+</div>

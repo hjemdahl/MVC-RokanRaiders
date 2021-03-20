@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RokanRaiders.Models.Event>
+@{
+    ViewData["Title"] = "Medlemsskap";
+}
+<div class="box-left-content">
+    <h2>Medlemsskap</h2>
+    <p>
+        Löksås ipsum omfångsrik dag upprätthållande göras gamla vidsträckt kan tidigare, faktor händer olika miljoner åker hans det erfarenheter. Lax det blev dimmhöljd groda rot i olika icke, gör lax redan händer kan inom enligt kom av, både bäckasiner upprätthållande rännil tidigare vi söka. Inom redan om vad gamla bland sin se, tidigare så björnbär kanske sorgliga gamla annat regn, del så söka som kanske mot.
+        <br />
+        <br />
+        Där sig sjö tidigare sällan rot ingalunda tid på omfångsrik ta ingalunda, träutensilierna samma brunsås hwila ser vemod ska omfångsrik gör dag, bland hans när tre sin gamla ser flera färdväg varit. Kanske samtidigt lax där trevnadens varit sällan dimmhöljd, både regn sorgliga rännil regn annat sorgliga, hans mjuka mot när annan sista. Och blivit vidsträckt omfångsrik stig björnbär kanske där kom, som där ta på flera bland på brunsås ingalunda, både oss så genom tidigare nya kanske.
+        <br />
+        <br />
+        Sin rännil ta helt upprätthållande faktor lax miljoner så, enligt dimma gamla tid precis gör hav, samtidigt äng faktor där genom mot sorgliga. Omfångsrik tidigare och där annan gör om det kanske, hwila sorgliga och för del och mjuka, annat plats bra olika sax söka hwila. För ska rot kom är det som fram denna där både kunde för själv, tre inom flera äng miljoner ta träutensilierna från björnbär bäckasiner samma.
+    </p>
+</div>
+
+<div class="box-next-event">
+    <h3>Nästa event</h3>
+    <!-- Skriv ut nästkommande event -->
+    @foreach (var item in Model)
+    {
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <h5>@Html.DisplayNameFor(model => model.Date)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Date)</p>
+        <h5>@Html.DisplayNameFor(model => model.Location)</h5>
+        <p> @Html.DisplayFor(modelItem => item.Location)</p>
+        <h5>@Html.DisplayNameFor(model => model.Info)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Info)</p>
+    }
+</div>

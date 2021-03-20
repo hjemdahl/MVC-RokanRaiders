@@ -1,0 +1,41 @@
+@model RokanRaiders.Models.Event
+
+@{
+    ViewData["Title"] = "Skapa nytt event";
+}
+<div class="box-center-content">
+    <h2>Skapa nytt event</h2>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="form-label" asp-for="Title"></label>
+            <input class="form-input" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="Date">ÅÅÅÅ/MM/DD HH:MM</label>
+            <input class="form-input" asp-for="Date" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="Location"></label>
+            <input class="form-input" asp-for="Location" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="Info"></label>
+            <input class="form-input" asp-for="Info" />
+            <span asp-validation-for="Info" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Lägg till" class="btn" />
+        </div>
+    </form>
+    <div>
+        <a class="help-link" asp-action="Index">Tillbaka till listan</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

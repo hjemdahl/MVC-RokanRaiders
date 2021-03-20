@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Rokan Raiders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <header>
+        <div class="box-logo">
+            <img class="logo" src="~/img/rokan.png" />
+        </div>
+        <nav>
+            <ul class="main-menu">
+                <li>
+                    <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Start">Start</a>
+                </li>
+                <li>
+                    <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Events">Event</a>
+                </li>
+                <li>
+                    <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Membership">Medelemsskap</a>
+                </li>
+                <!-- Om inloggad: visa i meny -->
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li>
+                        <a class="nav-item" asp-area="" asp-controller="Event" asp-action="Index">Admin</a>
+                    </li>
+                    <li>
+                        <a class="nav-item" asp-area="Identity" asp-page="/Account/Register">Registrera</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </header>
+
+    <div class="box-page-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="box-footer">
+            <p>&copy; 2021 - RokanRaiders</p>
+            <!-- Om inloggad: visa logga ut knapp, ej inloggad: visa admin länk -->
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Start", "Home", new { area = "" })">
+                    <button type="submit" class="btn" id="footer-btn">Logga ut</button>
+                </form>
+            }
+            else
+            {
+                <a asp-area="" asp-controller="Event" asp-action="Index">Admin</a>
+            }
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

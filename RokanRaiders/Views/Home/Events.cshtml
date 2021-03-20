@@ -1,0 +1,28 @@
+﻿@model IEnumerable<RokanRaiders.Models.Event>
+@{
+    ViewData["Title"] = "Event";
+}
+<div class="box-full-size">
+    <h2>Event</h2>
+    <!-- Skriv ut alla event -->
+    @foreach (var item in Model)
+    {
+<div class="box-foreach-event">
+    <div class="event-info titel">
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+    </div>
+    <div class="event-info datum">
+        <h5>@Html.DisplayNameFor(model => model.Date)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Date)</p>
+    </div>
+    <div class="event-info plats">
+        <h5>@Html.DisplayNameFor(model => model.Location)</h5>
+        <p> @Html.DisplayFor(modelItem => item.Location)</p>
+    </div>
+    <div class="event-info info">
+        <h5>@Html.DisplayNameFor(model => model.Info)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Info)</p>
+    </div>
+</div>
+    }
+</div>
